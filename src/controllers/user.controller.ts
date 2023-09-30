@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { findAllUsers } from "../services/user.service";
+import { editSession } from "../services/session.service";
 
 export const getMeHandler = (
   req: Request,
@@ -37,3 +38,24 @@ export const getAllUsersHandler = async (
     next(err);
   }
 };
+
+export const editHandler = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const edit = await editSession();
+    res.status(200).json({
+      status: "success",
+      result: edit.length,
+      data: {
+        edit,
+      },
+    });
+  } catch (err: any) {
+    next(err);
+  }
+};
+
+

@@ -10,7 +10,7 @@ export const createUserSchema = object({
       .min(8, "Password must be more than 8 characters")
       .max(32, "Password must be less than 32 characters"),
     passwordConfirm: string({ required_error: "Please confirm your password" }),
-  }).refine((data) => data.password === data.passwordConfirm, {
+  }).refine((data: { password: any; passwordConfirm: any; }) => data.password === data.passwordConfirm, {
     path: ["passwordConfirm"],
     message: "Passwords do not match",
   }),
@@ -28,5 +28,19 @@ export const loginUserSchema = object({
   }),
 });
 
+export const editSchema = object({
+  body: object({
+    titulo: string({ required_error: "titulo is required" }).min(
+      5,
+      "Invalid titulo"
+    ),
+    texto1: string({ required_error: "content is required" }).min(
+      50,
+      "Invalid text"
+    ),
+  }),
+});
+
 export type CreateUserInput = TypeOf<typeof createUserSchema>["body"];
 export type LoginUserInput = TypeOf<typeof loginUserSchema>["body"];
+export type editInput = TypeOf<typeof editSchema>["body"];

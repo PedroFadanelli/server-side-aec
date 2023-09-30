@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./utils/connectDB";
 import userRouter from "./routes/user.route";
 import authRouter from "./routes/auth.route";
+import editRouter from "./routes/edit.router";
 
 const app = express();
 
@@ -32,6 +33,7 @@ if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 // 5. Routes
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/edit", editRouter);
 
 // Testing
 app.get(
