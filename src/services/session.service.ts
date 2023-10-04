@@ -1,6 +1,6 @@
 import { omit, get } from "lodash";
 import sessionModel, { Session } from "../models/session.model";
-import editModel, { edit } from "../models/edit.model";
+import editModel, { edit } from "../models/landingPage.model";
 import { excludedFields } from "../controllers/auth.controller";
 // CreateUser service
 export const createSession = async (input: Partial<Session>) => {

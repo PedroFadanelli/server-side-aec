@@ -39,23 +39,3 @@ export const getAllUsersHandler = async (
   }
 };
 
-export const editHandler = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const edit = await editSession();
-    res.status(200).json({
-      status: "success",
-      result: edit.length,
-      data: {
-        edit,
-      },
-    });
-  } catch (err: any) {
-    next(err);
-  }
-};
-
-

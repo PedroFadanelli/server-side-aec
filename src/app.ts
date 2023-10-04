@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./utils/connectDB";
 import userRouter from "./routes/user.route";
 import authRouter from "./routes/auth.route";
-import editRouter from "./routes/edit.router";
+import editRouter from "./routes/landingPage.route";
 
 const app = express();
 
