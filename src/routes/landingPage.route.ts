@@ -1,15 +1,14 @@
 import express from "express";
-import {
-  loginHandler,
-  logoutHandler,
-  refreshAccessTokenHandler,
-  registerHandler,
-} from "../controllers/auth.controller";
 import { deserializeUser } from "../middleware/deserializeUser";
 import { requireUser } from "../middleware/requireUser";
 import { validate } from "../middleware/validate";
 import { createLandingPageSchema } from "../schema/landingPage.schema";
-import { createLandingPage } from "../controllers/landingPage.controller"; 
+import { 
+  createLandingPage,
+  updateLandingPage,
+  deleteLandingPage,
+  getLandingPage,
+} from "../controllers/landingPage.controller"; 
 
 const router = express.Router();
 
